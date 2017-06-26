@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Street View, Render Particular Pano Id</title>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script>
+ 
+/**
+ * Sets all our panos to point in a particular direction.
+ */
+function initializeAllPanos() {
+  panoId = 'OV67DJfRlMAAAGuvUykyA'
+  setStreetViewPanorama('panoBig', panoId, 0, 0);
+  setStreetViewPanorama('pano1', panoId, 0, 0);
+  setStreetViewPanorama('pano2', panoId, 180, 0);
+}
+ 
+/**
+ * Sets up the given div as a StreetView Panorama, with the given view angles.
+ * @param {string} panoId The panorama id. Eg: 'RJd2HuqmShMAAAQfCa3ulg'.
+ * @param {number} headingAngle The degree angle offset from North (clockwise?).
+ * @param {number} pitchAngle The degree angle upset up/down.
+ */
+function setStreetViewPanorama(divId, panoId, headingAngle, pitchAngle) {
+  var panoramaOptions = {
+    // pano: panoId,  // Wanted to demonstrate 'setPano' instead.
+    pov: {
+      heading: headingAngle,
+      pitch: pitchAngle,
+      zoom: 1
+    }
+  };
+  var panorama = new google.maps.StreetViewPanorama(document.getElementById(divId), panoramaOptions);
+  panorama.setPano(panoId);
+}
+ 
+google.maps.event.addDomListener(window, 'load', initializeAllPanos);
+    </script>
+  </head>
+  <body>
+    <div id="panoBig" style="width: 600px; height: 600px;"></div>
+    Smaller views:<br>
+    <div id="pano1" style="width: 200px; height: 200px; display: inline-block;"></div>
+    <div id="pano2" style="width: 200px; height: 200px; display: inline-block;"></div>
+  </body>
+ 
+</html>
+ 
+<!-- ACKNOWLEDGEMENTS:
+Based on code from: https://developers.google.com/maps/documentation/javascript/examples/streetview-simple !-->

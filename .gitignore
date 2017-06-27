@@ -58,7 +58,8 @@ target/
 TM_WORLD_BORDERS*
 
 # misc
-*.txt
+streetviews.txt
+removals.txt
 streetview_writer/
 *.sqlite
 validate.py

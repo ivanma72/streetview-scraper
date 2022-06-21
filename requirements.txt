@@ -25,7 +25,7 @@ Mako==1.0.3
 MarkupSafe==0.23
 nemo-emblems==3.2.3
 netifaces==0.10.4
-numpy==1.13.0
+numpy==1.22.0
 oauthlib==1.0.3
 olefile==0.44
 oneconf==0.3.9
